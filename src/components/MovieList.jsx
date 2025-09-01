@@ -2,7 +2,7 @@ import { MovieCard } from "./MovieCard";
 
 export const MovieList = ({ movies }) => {
   return (
-    <div className="row">
+    <div id="popular-movies" className="movie-grid">
       {movies.map(movie => (
         <MovieCard key={movie.id} {...movie}/>
       ))}
