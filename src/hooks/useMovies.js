@@ -12,7 +12,7 @@ export const useMovies = (type, query = "") => {
         setLoading(true);
 
         let data = [];
-        if (type === "search" && query) {
+        if (type === "search") {
           data = await getMovies(query);
         } else if (type === "popular") {
           data = await getPopularMovies();

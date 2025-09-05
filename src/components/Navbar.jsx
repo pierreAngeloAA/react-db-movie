@@ -1,4 +1,7 @@
-export const Navbar = () => {
+import { SearchMovie } from "../components/SearchMovie";
+
+export const Navbar = ({ setQuery }) => { 
+
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light">
       <div className="container">
@@ -8,9 +11,11 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="menu">
-
+      <div className="collapse navbar-collapse" id="menu">
         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li>
+            <SearchMovie setQuery={setQuery} />
+          </li>
           <li className="nav-item">
             <a className="nav-link" href="#" id="link-popular">Popular Movies 🎬</a>
           </li>
