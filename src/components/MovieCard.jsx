@@ -1,13 +1,10 @@
-export const MovieCard = ({ title, poster, overview }) => {
+import  ButtonFavorite  from "../components/ButtonFavorite";
+
+export const MovieCard = ({ movie }) => {
   return (
-    <div className="col-md-3 mb-4">
-      <div className="card h-100">
-        <img src={poster} className="card-img-top" alt={title} />
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{overview || "Sin descripción disponible."}</p>
-        </div>
-      </div>
+    <div className="movie-card">
+      <ButtonFavorite movie={movie} />
+      <img src={movie.poster} className="card-img-top" alt={movie.title} />
     </div>
   );
 };

@@ -33,7 +33,14 @@ nav.navbar {
   width: 150px;
   cursor: pointer;
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.05); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
 .movie-card img {
   width: 100%;
   border-radius: 10px;
@@ -51,17 +58,18 @@ nav.navbar {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.fav-btn:active,
-.delete-btn:active {
-  transform: scale(0.99);
+.fav-btn:hover,
+.delete-btn:hover {
+  background-color: #ffe6e6;
+  transform: scale(1.2);
 }
 
 .fav-btn {
-  background-color: white;
+  background-color: rgb(241, 163, 163);
 }
 
 .delete-btn {
-  background-color: #e50914;
+  background-color: #ffffff;
 }
 
 #modal-details {
