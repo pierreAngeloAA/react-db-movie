@@ -1,5 +1,5 @@
-const API_KEY = 'a193a1e35492fef05a07b98c1844f80c';
-const BASE_URL = 'https://api.themoviedb.org/3';
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const BASE_URL = import.meta.env.VITE_TMDB_BASE_URL;
 
 const formatMovies = (data) => {
   if (!data || !data.results) return [];
@@ -31,6 +31,6 @@ export const getPopularMovies = async () => {
 export const getTopRatedMovies = async () => {
   const res = await fetch(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=es-ES`);
   const data = await res.json();
- 
+
   return formatMovies(data);
 };

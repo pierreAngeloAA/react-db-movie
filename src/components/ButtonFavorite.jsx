@@ -1,20 +1,22 @@
 import { useFavoritesContext } from "../context/FavoritesContext";
 
 const ButtonFavorite = ({ movie }) => {
-  const { addFavorite, removeFavorite } = useFavoritesContext();
+  const { favorites, addFavorite, removeFavorite } = useFavoritesContext();
+  const isFavorite = favorites.some((fav) => fav.id === movie.id);
+  const buttonClass = isFavorite ? 'delete-btn' : 'fav-btn';
+
+  const handleFavorite = () => {
+    if (isFavorite) {
+      removeFavorite(movie);
+    } else {
+      addFavorite(movie);
+    }
+  }
 
   return (
-    <>
-      {movie.favorite ? (
-        <button className="delete-btn" onClick={() => removeFavorite(movie)}>
-          ❤️
-        </button>
-      ) : (
-        <button className="fav-btn" onClick={() => addFavorite(movie)}>
-          🤍
-        </button>
-      )}
-    </>
+    <button className={buttonClass} onClick={handleFavorite}>
+      { isFavorite ? '❤️' : '🤍'}
+    </button>
   );
 };
 
