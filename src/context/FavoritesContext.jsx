@@ -8,8 +8,6 @@ export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(storage.getData());
   const [loading, setLoading] = useState(true);
 
-  console.log(loading);
-
   useEffect(() => {
     storage.saveData(favorites);
     setLoading(false)
@@ -26,7 +24,7 @@ export const FavoritesProvider = ({ children }) => {
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite }}>
+    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, loading }}>
       {children}
     </FavoritesContext.Provider>
   );
