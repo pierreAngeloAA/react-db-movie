@@ -7,9 +7,17 @@ export const useMovies = (type, query = "") => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // An empty search would still hit the API on every render of the page.
+    if (type === "search" && !query.trim()) {
+      setMovies([]);
+      setLoading(false);
+      return;
+    }
+
     const fetchData = async () => {
       try {
         setLoading(true);
+        setError(null);
 
         let data = [];
         if (type === "search") {

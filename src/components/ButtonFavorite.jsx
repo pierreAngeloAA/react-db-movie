@@ -1,4 +1,4 @@
-import { useFavoritesContext } from "../context/FavoritesContext";
+import { useFavoritesContext } from "../context/useFavoritesContext";
 
 const ButtonFavorite = ({ movie }) => {
   const { favorites, addFavorite, removeFavorite } = useFavoritesContext();

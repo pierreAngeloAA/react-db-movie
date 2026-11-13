@@ -1,7 +1,6 @@
-import { createContext, useContext, useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { FavoritesContext } from "./favoritesContextValue";
 import { StorageHandler } from "../services/storage";
-
-const FavoritesContext = createContext();
 
 export const FavoritesProvider = ({ children }) => {
   const storage = useMemo(() => new StorageHandler("favorites"), []);
@@ -28,8 +27,4 @@ export const FavoritesProvider = ({ children }) => {
       {children}
     </FavoritesContext.Provider>
   );
-};
-
-export const useFavoritesContext = () => {
-  return useContext(FavoritesContext);
 };
